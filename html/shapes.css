@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.title{
+    display: flex;
+    justify-content: center;
+    color: salmon;
+}
+
+.square,
+.oval,
+.rect,
+.circle{
+    border-right: solid 2px darkblue;
+    border-top: solid 2px darkblue;
+    border-bottom: solid 2px rgb(198, 198, 218);
+    display: inline-flex;
+    width: 195px;
+    height: 85px;
+    align-items: center;
+    flex-direction: column;
+}
+.square{
+    border-left: solid 2px darkblue;
+}
+
+.squareShape{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(129, 37, 57);
+    display: inline-block;
+}
+
+
+.circleShape{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(50, 195, 195);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+.ovalShape{
+    height: 50px;
+    width: 100px;
+    background-color: rgb(64, 191, 207);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+.rectShape{
+    height: 50px;
+    width: 100px;
+    background-color: rgb(60, 184, 81);
+    display: inline-block;
+}
+
+
+.shapes{
+    display: flex;
+    justify-content: center;
+}
+
+h6{
+    text-align: center;
+    color: blue;
+    margin-bottom: 10px;
+}
+
+
+h1{
+    margin-bottom: 50px;
+}
+
+

@@ -11,7 +11,7 @@ from gui import*
 # Hard      ->  40
 # Harder    ->  60
 # Impossible->  120
-difficulty = 25
+difficulty = 10
 
 
 # Game variables
@@ -55,11 +55,15 @@ while True:
 
     1.  Making sure the snake cannot move in the opposite direction instantaneously
     """
-    # We will write te psudo code for it first  
-    # ------
-    # ------
-    # ------
-    # FOR YOU TO DO 
+    if change_to =='UP' and direction != 'DOWN':
+        direction = 'UP'
+    if change_to =="DOWN" and direction != "UP":
+        direction = "DOWN"
+    if change_to == "LEFT" and direction != "RIGHT":
+        direction = "LEFT"
+    if change_to == "RIGHT" and direction != "LEFT":
+        direction = "RIGHT"
+    
 
 
 
@@ -67,10 +71,15 @@ while True:
     2. Moving the snake
     """
 
-    # ------
-    # ------
-    # ------
-    # FOR YOU TO DO
+    if direction =="UP":
+        snake_pos[1] -= 10
+    if direction == "DOWN":
+        snake_pos[1] +=10
+    if direction =="LEFT":
+        snake_pos[0] -=10
+    if direction == "RIGHT":
+        snake_pos[0] += 10 
+    
    
    """
    3.Snake body growing mechanism
@@ -78,9 +87,8 @@ while True:
    """
     snake_body.insert(0, list(snake_pos))
     if snake_pos[0] == food_pos[0] and snake_pos[1] == food_pos[1]:
-        # FOR YOU TO DO
-        # update the score
-        # set "food_spawn" to False
+        score += 1
+        food_spawn = False
     else:
         snake_body.pop()
 
@@ -89,9 +97,8 @@ while True:
     4.Spawning food on the screen
     you do not need to writ anything for this part but you should be able to understand what it means 
     """
-    if not food_spawn:
+    if food_spawn == False:
         food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
-        # You should be able explain to me what the code above means 
     food_spawn = True
 
 
@@ -115,14 +122,15 @@ while True:
 
     
     
-    # if snake_pos[0] < -------- or snake_pos[0] > ---------:
-    #     game_over()
-    # if snake_pos[1] < -------- or snake_pos[1] > ---------:
-    #     game_over()
-    # # Touching the snake body
-    # for block in snake_body[1:]:
-    #     if snake_pos[0] == block[0] and snake_pos[1] == block[1]:
-    #         game_over()
+    if snake_pos[0] < 0 or snake_pos[0] > frame_size_x-10:
+        game_over()
+
+    if snake_pos[1] < 0 or snake_pos[1] > frame_size_y-10:
+        game_over()
+    # Touching the snake body
+    for block in snake_body[1:]:
+        if snake_pos[0] == block[0] and snake_pos[1] == block[1]:
+            game_over()
 
 
 
